@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        #image-container {
+            display: none;
+            text-align: center;
+        }
+        #image-container img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="image-container">
+        <!-- Yahan apni tasveer (picture) ka URL lagayein -->
+        <a id="utm-link" href="#">
+            <img src="https://via.placeholder.com/600x400?text=Click+Here+To+Continue" alt="Click to Continue">
+        </a>
+    </div>
+
+    <script>
+        const utm1 = "https://boost786x.top/boost55abc/?utm_source=VK&utm_medium=MZ";
+        const utm2 = "https://boost786x.top/boost55abc/?utm_source=VK&utm_medium=SULTAN";
+
+        // Visits count check karna
+        let visitCount = parseInt(localStorage.getItem('userVisitCount') || '0');
+        visitCount += 1;
+        localStorage.setItem('userVisitCount', visitCount);
+
+        const imgContainer = document.getElementById('image-container');
+        const utmLink = document.getElementById('utm-link');
+
+        if (visitCount === 1) {
+            // Pehli baar: Auto-redirect UTM 1 par
+            window.location.href = utm1;
+        } else if (visitCount === 2) {
+            // Doosri baar: Picture dikhayega UTM 1 link ke sath
+            utmLink.href = utm1;
+            imgContainer.style.display = 'block';
+        } else if (visitCount === 3) {
+            // Teesri baar: Auto-redirect UTM 2 par
+            window.location.href = utm2;
+        } else if (visitCount === 4) {
+            // Chauthi baar: Picture dikhayega UTM 2 link ke sath
+            utmLink.href = utm2;
+            imgContainer.style.display = 'block';
+        } else {
+            // 4 visits ke baad bhi picture aur UTM 2 hi dikhayega
+            utmLink.href = utm2;
+            imgContainer.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
